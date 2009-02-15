@@ -2,6 +2,8 @@
 <head><title> Gittin' Forky: The Social Coding Revolution </title></head>
 <body>
 
+<h3> The Git[Hub] Frenzy </h3>
+
 <p>
     The <a href="http://north.webdirections.org/">web directions
     conference</a> was amazing this year.  Extremely high quality
@@ -43,8 +45,9 @@
     <a href="http://www.google.com/trends?q=svn%2Cgit&ctab=0&geo=all&date=all&sort=1">this trend comparison graph</a>.
     Finally, note the recent increase of interest in 
     <a href="http://www.google.com/trends?q=git&ctab=0&geo=all&date=all&sort=0">git itself</a> 
-    seems primarily driven by the interest around GitHub.  Git, give the Hub a big kiss.  It's safe to call
-    this a frenzy, so again, what the hell is going on?  Is all this
+    seems primarily driven by the interest around GitHub.
+	Git, give the Hub a big kiss.  So now it's really safe to call
+    this a <i>frenzy</i>, so again, what the hell is going on?  Is all this
     warranted, or is GitHub a fancy boy band that'll be gone tommorrow?
     Maybe it's fear, are we pretending to be interested so we
     don't get called "ugly and stupid" by
@@ -52,10 +55,81 @@
     git's father?  (ED: he's done some other interesting stuff, I just can't
     recall what right now)
 </p>
+<p>
+    I would posit that we engineers are <b>not</b> overly impressed with
+	the hot, fresh, and new - that we couldn't be threatened into loving
+	something, even by someone as imtimidating as Linus.  So let's give
+	ourselves the benefit of the doubt and dig into git a bit, what is so
+	interesting about this new revision control system that has us so
+	hot and bothered?
+	
+</p>
+
+<h3> The Utility of Git </h3>
+
+<p>
+  Git is the first free <i>Distributed</i> version control system to gain
+  widespread popular visibility.  As Linus says, distribution, rather
+  than any particular implementation, is the key interesting idea.  So
+  how does a distributed version control differ from a centralized system?
+  Let's <a href="http://en.wikipedia.org/wiki/Distributed_revision_control">turn to wikipedia</a> for this one, here are some key features of
+  distributed systems:
+  <ul>
+   <li> There may be many "central" repositories.
+   <li> Code from disparate repositories are merged based on a web of trust, i.e., historical merit or quality of changes.
+   <li> Lieutenants are project members who have the power to dynamically decide which branches to merge.
+   <li> Network is not involved in most operations.
+   <li> A separate set of "sync" operations are available for committing or receiving changes with remote repositories.
+  </ul>
+
+  So the essence here is a Distributed system means each checkout pulls
+  a full copy of the source repository, for all practical purposes
+  indistinguishable from the original.  This behavior provides some
+  features and some implementation challenges, first let's look at what we
+  get:
+  <ul>
+    <li> true offline development, because we have our own copy, nearly
+	  every feature of the system can be utilized without network
+	  connectivity.  
+	<li> local commits, branching, and tagging - we can use revision
+	  control at every stage of development and only share our changes
+	  when ready.
+	<li> fast operations - because the network is not involved, pulling
+	  blame annotated source, commit statistics, or historical spelunking
+	  all can run on the local system.
+    <li> redundancy - every checkout produces an organic backup of the
+	  central repository
+	<li> reduced server load - because the server is involved in a reduced
+	  set of operations, it's not working as hard.
+  </ul>
+</p>
+
+<p>
+  Is this simple idea new for revision control:  Do more on the client? 
+  Let's consider a few representative revision control systems over the
+  course of time: RCS, CVS, and Subversion.  In RCS there was
+  no reasonable notion of checking out source, you worked on the server.
+  CVS brought us the ability to check out source, but every revision
+  control operation would hit the network.  In subversion a checkout keeps
+  a pristine copy of each file so you can do local diffing.  Now git keeps
+  the whole history, so you can do local, well, anything.  Framed in this
+  way distribution seems a logical evolution.  We've been slowly moving
+  more and more data and functionality to the client, and now we've taken
+  it to its logical end.
+</p>
+
+<p>
+  While technical characteristics of distribution are interesting, the
+  sociological elements are moreso.  Because a checkout gives you a
+  full copy of the source repository, things like "commit priviledges" are
+  no longer meaningful.  Everyone may commit to their personal repository.
+  No one is special.  If I were to clone a public open source repository,
+  and host it somewhere, now I have a copy that's the same as the original,
+  and if I do a good job, folks can follow me rather than the original
+  author.  [work on this paragraph]
+</p>
 
 WRITE ME:
-
-  c. lead-in to the two major elements: git and github
 
 3. The utility of git
    a. key "novel" ideas
